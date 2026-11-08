@@ -1,0 +1,31 @@
+{
+  "project_info": {
+    "project_number": "897902422978",
+    "project_id": "itdxdda-asg1-cbe5c",
+    "storage_bucket": "itdxdda-asg1-cbe5c.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:897902422978:ios:4772a1d9ac91796e96045b",
+        "android_client_info": {
+          "package_name": "com.SyncSphere.TheBoutiqueWindow"
+        }
+      },
+      "api_key": [
+        {
+          "current_key": "AIzaSyC4k8wHeD0WetCmLB59si-kOsKAeqMjTwg"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 0
+        },
+        "appinvite_service": {
+          "status": 1
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
