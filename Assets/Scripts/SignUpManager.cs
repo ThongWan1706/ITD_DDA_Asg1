@@ -93,7 +93,7 @@ public class SignUpManager : MonoBehaviour
                 UserDataHolder.password = password.text;
 
                 //Move to the next scene where they enter profile details
-                SceneManager.LoadScene("ProfileSetupScene");
+                SceneManager.LoadScene("CreateUserProfileScene");
             }
         });
     }
