@@ -10,13 +10,39 @@ public class ProfileSetupManager : MonoBehaviour
 {
     public TMP_InputField playerNameInput;
     public TMP_InputField birthdayInput; 
-    public TMP_Text errormessage;
+    public GameObject errorPopupPanel; 
+    public TMP_Text errormessage; 
 
+    public void CloseErrorPopup()
+    {
+        if (errorPopupPanel != null)
+            errorPopupPanel.SetActive(false);
+    }
+
+    //For the Previous Button
+    public void undoScene()
+    {
+        Debug.Log("Previous Button Clicked!");
+        SceneManager.LoadScene("SignUp");
+    }
+
+    //For the player to submit their player game profile
     public void SubmitProfile()
     {
         if (string.IsNullOrEmpty(playerNameInput.text) || string.IsNullOrEmpty(birthdayInput.text))
         {
             errormessage.text = "Please fill in all fields.";
+            if (errorPopupPanel != null) errorPopupPanel.SetActive(true);
+            return;
+        }
+
+        //Parse the birthday text (Expected format: YYYY-MM-DD)
+        string dateFormat = "dd-MM-yyyy";
+        
+        if (!DateTime.TryParseExact(birthdayInput.text.Trim(), dateFormat, null, System.Globalization.DateTimeStyles.None, out DateTime parsedBirthday))
+        {
+            errormessage.text = $"Invalid date format! Please use {dateFormat}";
+            if (errorPopupPanel != null) errorPopupPanel.SetActive(true);
             return;
         }
 
@@ -30,13 +56,15 @@ public class ProfileSetupManager : MonoBehaviour
             new CartItem("AR_Initial_Scene", "Screenshots/default.png", currentTimestamp)
         };
 
-        // Construct the full Player JSON object matching your schema
+        // Construct the full Player JSON object 
         PlayerData newPlayer = new PlayerData(
             UserDataHolder.userId,
             UserDataHolder.email,
             UserDataHolder.password,
             playerNameInput.text,
             birthdayTimestamp,
+            AvatarSelector.selectedAvatar,
+            "",
             initialCart
         );
 
@@ -55,7 +83,7 @@ public class ProfileSetupManager : MonoBehaviour
                 else
                 {
                     Debug.Log("Player profile saved successfully!");
-                    SceneManager.LoadScene("GameLevelScene"); // Move into the actual game
+                    SceneManager.LoadScene("SampleScene"); 
                 }
             });
     }

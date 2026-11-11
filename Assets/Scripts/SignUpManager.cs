@@ -13,6 +13,18 @@ public class SignUpManager : MonoBehaviour
     public TMP_Text errormessage; 
     public GameObject errorPopupPanel; 
 
+    public void CloseErrorPopup()
+    {
+        if (errorPopupPanel != null)
+            errorPopupPanel.SetActive(false);
+    }
+
+    //For the Previous Button
+    public void undoScene()
+    {
+        SceneManager.LoadScene("LoginPage");
+    }
+
     private bool CheckInputs()
     {
         errormessage.text = "";
