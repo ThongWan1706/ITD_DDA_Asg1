@@ -1,4 +1,4 @@
-System;
+using System;
 using System.Collections.Generic;
 
 [System.Serializable]
@@ -17,7 +17,7 @@ public class CartItem
 }
 
 [System.Serializable]
-public class Player
+public class PlayerData
 {
     public string id;
     public string email;
@@ -26,7 +26,7 @@ public class Player
     public long birthday; // Unix timestamp in milliseconds
     public List<CartItem> cart;
 
-    public Player(string id, string email, string password, string playername, long birthday, List<CartItem> cart)
+    public PlayerData (string id, string email, string password, string playername, long birthday, List<CartItem> cart)
     {
         this.id = id;
         this.email = email;
