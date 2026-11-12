@@ -12,12 +12,20 @@ public class AuthManagerScript : MonoBehaviour
     public TMP_InputField email; //For the input fields in the canvas
     public TMP_InputField password; //For the input fields in the canvas
     public TMP_Text errormessage; //For the error message
-    public GameObject errorPopupPanel; // Assign your ErrorPopupPanel here in the Inspector
+    public GameObject errorPopupPanel; //For the ErrorPopupPanel
+    public GameObject resetPasswordPopupPanel; //For the resetPasswordPanel
+    public TMP_Text resetPasswordmessage; //For the reset password message
 
     public void CloseErrorPopup()
     {
         if (errorPopupPanel != null)
             errorPopupPanel.SetActive(false);
+    }
+
+    public void CloseResetPasswordPopup()
+    {
+        if (resetPasswordPopupPanel != null)
+            resetPasswordPopupPanel.SetActive(false);
     }
 
     //Private these up for validation
@@ -146,7 +154,7 @@ public class AuthManagerScript : MonoBehaviour
         if (email.text.Length == 0)
         {
             errormessage.text = "Please enter a proper email address.";
-            if (errorPopupPanel != null) errorPopupPanel.SetActive(true);
+            if (resetPasswordPopupPanel !=null) resetPasswordPopupPanel.SetActive(true);
             return;
         }
 
@@ -163,9 +171,11 @@ public class AuthManagerScript : MonoBehaviour
             }
             else
             {
-                errormessage.text = "Please check your email for steps to reset the password";
+                resetPasswordmessage.text = "Please check your email for steps to reset the password";
+                if (resetPasswordPopupPanel != null) resetPasswordPopupPanel.SetActive(true);
+                return;
             }
-            if (errorPopupPanel != null) errorPopupPanel.SetActive(true);
+            if (resetPasswordPopupPanel != null) resetPasswordPopupPanel.SetActive(true);
         });
     }
 
