@@ -305,6 +305,7 @@ MonoBehaviour:
   errormessage: {fileID: 16339529}
   errorPopupPanel: {fileID: 1546178713}
   resetPasswordPopupPanel: {fileID: 1913637122}
+  resetPasswordmessage: {fileID: 1912124799}
 --- !u!1 &212601883
 GameObject:
   m_ObjectHideFlags: 0

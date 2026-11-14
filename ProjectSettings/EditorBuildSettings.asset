@@ -15,7 +15,7 @@ EditorBuildSettings:
     path: Assets/Scenes/CreateUserProfileScene.unity
     guid: d6586215ae25b8d4dba665311beed932
   - enabled: 1
-    path: Assets/Scenes/SampleScene.unity
+    path: Assets/Scenes/GaneScene.unity
     guid: 4755b35b590504809a7525fd2109c2e2
   m_configObjects:
     UnityEditor.XR.ARCore.ARCoreSettings: {fileID: 11400000, guid: 6ee72d15cf39dd748a13eac57397b9af, type: 2}
